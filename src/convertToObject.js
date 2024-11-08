@@ -10,16 +10,10 @@ function convertToObject(sourceString) {
   const arrStr = sourceString.split(';');
 
   for (const pieceArr of arrStr) {
-    // @ts-ignore
-    // eslint-disable-next-line no-console
-    console.log(pieceArr);
+    const [styleName, value] = pieceArr.trim().split(':');
 
-    if (pieceArr) {
-      const [styleName, value] = pieceArr.trim().split(':');
-
-      if (styleName && value) {
-        cssStyle[styleName.trim()] = value.trim();
-      }
+    if (styleName && value) {
+      cssStyle[styleName.trim()] = value.trim();
     }
   }
 
